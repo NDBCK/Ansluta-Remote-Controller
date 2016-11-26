@@ -24,7 +24,7 @@ Clock Edge= 0, Polarity= 1 RawData= 0
 
 The sniffed data is in the file: "SPI_DATA.txt"
 
-##Decoding SPI
+###Decoding SPI
 
 Every time the button is pressed 2 data strobes are sent followed by a burst of data followed by a final strobe.
 
