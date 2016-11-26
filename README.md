@@ -13,9 +13,18 @@ The choise for the CC2500 was easy because the original Anluta Remote uses this 
 Some code is loosely based on:
 https://github.com/Zohan/ArduinoCC2500Demo
 
-##Method
+##Work in progress
+
+###Sniffing SPI
 I had a look inside an orginal Ansluta remote, it uses an texas instrument uC (MSP430G2221) and an CC2500.
 The CC2500 communicates over an SPI bus to the uC. So I've connected a "Bus Pirate" to the SPI bus of the uC and sniffed the commands and data packets to the wireless chip.
+
+The settings for the bus pirate were (SPI sniffer):
+Clock Edge= 0, Polarity= 1 RawData= 0 
+
+The sniffed data is in the file: "SPI_DATA.txt"
+
+##Decoding SPI
 
 The CC2500 is readily available as module on ebay with integrated antenna so no RF design is needed.
 
