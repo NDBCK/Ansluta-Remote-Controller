@@ -26,6 +26,38 @@ The sniffed data is in the file: "SPI_DATA.txt"
 
 ##Decoding SPI
 
+Every time the button is pressed 2 data strobes are sent followed by a burst of data followed by a final strobe.
+
+Together with the datasheet from we can decode the data:
+
+Strobe 1:
+5B 5B 5C 5C 36 36 0F 0F 5D 5D 	//0x36 SIDLE Exit RX / TX, turn off frequency synthesizer and exit Wake-On-Radio mode if applicable
+
+Strobe 2:
+5B 5B 5C 5C 3B 3B 0F 0F 5D 5D 	//0x3B SFTX Flush the TX FIFO buffer. Only issue SFTX in IDLE or TXFIFO_UNDERFLOW states.
+
+Burst of data:
+5B 5B 5C 5C 7F 7F 0F 0F 5C 5C 	//0x7F Burst access to TX FIFO
+06 06 0F 0F 5C 5C 
+55 55 0F 0F 5C 5C 
+01 01 0F 0F 5C 5C 
+3E 3E 0F 0F 5C 5C 
+94 94 0F 0F 5C 5C 
+02 02 0F 0F 5C 5C 
+AA AA 0F 0F 5C 5C 
+FF FF 0F 0F 5D 5D 
+
+Final strobe:
+5B 5B 5C 5C 35 35 0F 0F 5D 5D 	//0x35 STX In IDLE state: Enable TX. 
+
+
+Clearly some data is missing (configuration of the CC2500).
+This is when the battery's are inserted in the remote some initializing data is sent to the CC2500 (without pressing a button).
+
+So the module is awakened from sleep mode, the send buffer is cleared, data is loaded into the buffer and finaly the data is transmitted.
+
+
+
 The CC2500 is readily available as module on ebay with integrated antenna so no RF design is needed.
 
 
