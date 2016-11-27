@@ -129,4 +129,13 @@ The lineair voltage regulator (3.3V) on the nano is used as power source for the
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/ProtoSch.jpg "Schematic of the prototype")
 
+###Prototype Code
+Now we have the necessary SPI data we and hardware we can write some basic code for the nano.
+The resulting code can be found [HERE](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/AnslutaProto/AnslutaProto.ino).
+The configuration of the module is mostly the same as the original IKEA remote except the output power is changed to the maximal TX power by setting the first byte of the PATABLE with 0xFF.
+The IDLE mode isn't used because after we configure the module we immediately send the data.
 
+The SPI settings (found by looking at the graph in the datasheet "Configuration Register Write and Read Operations") are:
+..*SPI Mode 0
+..*MSB First
+..*Max speed: 6Mhz (no need to use extra delays).
