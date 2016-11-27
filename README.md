@@ -3,7 +3,7 @@ DIY remote controller for the Ikea Ansluta lights (the 2.4Ghz version)
 
 ##Intro
 
-The Ansluta (OMLOP) line of Ikea lamps only let u use one remote controller for each light. 
+The Ansluta (OMLOPP) line of Ikea lamps only let u use one remote controller for each light. 
 I wanted to use multiple remotes to control one string of lights.
 
 Another caveat of the original remotes is that it can only cycle through the different brightness levels. It cycles though: 0% - 50% - 100% - 50% - 0% - ....
