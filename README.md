@@ -32,7 +32,7 @@ The sniffed data is in the file: ["SPI_DATA.txt"](https://github.com/NDBCK/Anslu
 ###Decoding SPI
 
 ####Button press
-Every time the button is pressed 2 data strobes are sent followed by a burst of data followed by a final strobe.
+Every time the button is pressed a sequence is repeated 50 times: 2 data strobes are sent followed by a burst of data followed by a final strobe.
 
 Together with the datasheet from we can decode the data:
 
@@ -57,7 +57,7 @@ FF FF 0F 0F 5D 5D
 //Final strobe:
 5B 5B 5C 5C 35 35 0F 0F 5D 5D 	//0x35 STX In IDLE state: Enable TX. 
 ```
-So the module is awakened from sleep mode, the send buffer is cleared, data is loaded into the buffer and finaly the data is transmitted.
+So the module is awakened from sleep mode, the send buffer is cleared, data is loaded into the buffer and finaly the data is transmitted. This is repeated 50 times presumable to ensure that the data is received at least one time.
 
 Clearly some data is missing (configuration of the CC2500).
 
@@ -111,7 +111,7 @@ SPI Data                                            Register        Value
 5B [5C 2C 0x2C(0F 0x0F)5C 88 0x88(0F 0x0F)5D ]	//	TEST2            0x88
 5B [5C 2D 0x2D(0F 0x0F)5C 31 0x31(0F 0x0F)5D ]	//	TEST1            0x31
 5B [5C 2E 0x2E(0F 0x0F)5C 0B 0x0B(0F 0x0F)5D ]	//	TEST0            0x0B
-5B [5C 7E 0x7E(0F 0x0F)5C FF 0xFF(0F 0x0F)5D ]	//	?????            0xFF
+5B [5C 7E 0x7E(0F 0x0F)5C FF 0xFF(0F 0x0F)5D ]	//	?????            0xFF  -> unknown register 
 5B [5C 39 0x39(0F 0x0F)5D ]		
 
 ```
@@ -121,4 +121,11 @@ SPI Data                                            Register        Value
 The CC2500 is readily available as module on ebay with integrated antenna and capacitors so no RF design is needed. Only an SPI connection and power supply is needed. I chose a cheap ebay module with a real CC2500 IC (no blob).
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/cc2500module.jpg "CC2500 module")
+
+To communicate with the wireless module by SPI, I used an arduino nano because I had it laying around.
+For connecting the nano to the CC2500 we have to be carefull with the different voltages. The CC2500 is 3V and the nano is 5V.
+An easy (dirty) way to connect them is using a resistor (about 1K) in series with the data lines comming for the arduino. The data line comming from the CC2500 (MISO) doesnt need the resistor (a high level from CC2500 is 3V and the nano's input detects it as a high level without modifications).
+
+![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/SchProto.jpg "Schematic of the prototype")
+
 
