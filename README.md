@@ -13,7 +13,7 @@ I would like to turn it on to 50% brightness and turn it off without cycling to 
 
 This project is based around an [CC2500 2.4Ghz wireless controller](http://www.ti.com/lit/ds/swrs040c/swrs040c.pdf) and an Atmega328 (ex Arduino Nano).
 
-The choice for the CC2500 was easy because the original Anluta Remote uses this IC, so it's definately possible to use this for controlling the lamp.
+The choice for the CC2500 was easy because the original Ansluta Remote uses this IC, so it's definately possible to use this for controlling the lamp.
 
 Some code is loosely based on:
 https://github.com/Zohan/ArduinoCC2500Demo
