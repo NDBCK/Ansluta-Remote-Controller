@@ -144,7 +144,7 @@ The SPI settings (found by looking at the graph in the datasheet "Configuration 
   * Max speed: 6Mhz (no need to use extra delays).
   
  The prototype code simply sends the necessary signals to turn the lights on and off in an endless loop (for testing purposes).
- Now that the prototype works it's time to make a couple of remote's to control the light.
+ Now that the prototype works it's time to make a couple of remotes to control the light.
  
 It's needed to remark that the givven code uses the addres that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
  
