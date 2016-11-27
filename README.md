@@ -6,6 +6,8 @@ DIY remote controller for the Ikea Ansluta lights
 The Ansluta line of Ikea lamps only let u use one remote controller for each light. 
 I wanted to use multiple remote's to control one string of lights.
 
+![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/anslutaOr.JPG "Original remote")
+
 This project is based around an [CC2500 2.4Ghz wireless controller](http://www.ti.com/lit/ds/swrs040c/swrs040c.pdf) and an Atmega328 (ex Arduino Nano).
 
 The choise for the CC2500 was easy because the original Anluta Remote uses this IC, so it's definately possible to use this for controlling my lamp.
