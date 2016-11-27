@@ -1,5 +1,5 @@
 # Ansluta-Remote-Controller
-DIY remote controller for the Ikea Ansluta lights
+DIY remote controller for the Ikea Ansluta lights (the 2.4Ghz version)
 
 ##Intro
 
