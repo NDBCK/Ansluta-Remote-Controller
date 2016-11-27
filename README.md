@@ -149,3 +149,4 @@ Now that the prototype works it's time to make a couple of remotes to control th
 It's needed to remark that the givven code uses the address that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
  
 ##Designing a PCB
+Comming soon
