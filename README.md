@@ -136,6 +136,6 @@ The configuration of the module is mostly the same as the original IKEA remote e
 The IDLE mode isn't used because after we configure the module we immediately send the data.
 
 The SPI settings (found by looking at the graph in the datasheet "Configuration Register Write and Read Operations") are:
-..*SPI Mode 0
-..*MSB First
-..*Max speed: 6Mhz (no need to use extra delays).
+  *SPI Mode 0
+  *MSB First
+  *Max speed: 6Mhz (no need to use extra delays).
