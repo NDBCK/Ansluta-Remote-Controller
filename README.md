@@ -118,7 +118,7 @@ SPI Data                                            Register        Value
 
 ###Prototype Hardware
 
-The CC2500 is readily available as module on ebay with integrated antenna and capacitors so no RF design is needed. Only an SPI connection and power supply is needed. I chose a cheap ebay module with a real CC2500 IC (no blob).
+The CC2500 is readily available as module on ebay with integrated antenna and capacitors so no RF design is needed. Only an SPI connection and power supply is needed. I chose a cheap ebay module with a real CC2500 IC (no glob top).
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/cc2500module.jpg "CC2500 module")
 
