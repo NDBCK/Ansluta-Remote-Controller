@@ -6,7 +6,7 @@ DIY remote controller for the Ikea Ansluta lights
 The Ansluta line of Ikea lamps only let u use one remote controller for each light. 
 I wanted to use multiple remote's to control one string of lights.
 
-This project is based around an CC2500 2.4Ghz wireless controller and an Atmega328 (ex Arduino Nano).
+This project is based around an [CC2500 2.4Ghz wireless controller](http://www.ti.com/lit/ds/swrs040c/swrs040c.pdf) and an Atmega328 (ex Arduino Nano).
 
 The choise for the CC2500 was easy because the original Anluta Remote uses this IC, so it's definately possible to use this for controlling my lamp.
 
@@ -16,16 +16,16 @@ https://github.com/Zohan/ArduinoCC2500Demo
 ##Work in progress
 
 ###Sniffing SPI
-I had a look inside an orginal Ansluta remote, it uses an texas instrument uC ([MSP430G2221](http://www.ti.com/lit/ds/symlink/msp430g2131.pdf)) and an [CC2500](http://www.ti.com/lit/ds/swrs040c/swrs040c.pdf).
+I had a look inside an orginal Ansluta remote, it uses an texas instrument uC ([MSP430G2221](http://www.ti.com/lit/ds/symlink/msp430g2131.pdf)) and an CC2500.
 The CC2500 communicates over an SPI bus to the uC. So I've connected a ["Bus Pirate"](http://dangerousprototypes.com/docs/Bus_Pirate_v4_design_overview) to the SPI bus of the uC and sniffed the commands and data packets to the wireless chip.
  
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/RemoteSnif.jpg "Sniffing SPI data")
 
 
-The settings for the bus pirate were (SPI sniffer):
+The settings for the bus pirate were ([SPI sniffer utility](http://dangerousprototypes.com/docs/Bus_Pirate_binary_SPI_sniffer_utility)):
 Clock Edge= 0, Polarity= 1 RawData= 0 
 
-The sniffed data is in the file: "SPI_DATA.txt"
+The sniffed data is in the file: ["SPI_DATA.txt"](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/SPI_DATA.txt)
 
 ###Decoding SPI
 
