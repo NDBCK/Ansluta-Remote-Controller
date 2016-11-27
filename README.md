@@ -18,6 +18,9 @@ https://github.com/Zohan/ArduinoCC2500Demo
 ###Sniffing SPI
 I had a look inside an orginal Ansluta remote, it uses an texas instrument uC (MSP430G2221) and an CC2500.
 The CC2500 communicates over an SPI bus to the uC. So I've connected a "Bus Pirate" to the SPI bus of the uC and sniffed the commands and data packets to the wireless chip.
+ 
+![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/RemoteSnif.jpg "Sniffing SPI data")
+
 
 The settings for the bus pirate were (SPI sniffer):
 Clock Edge= 0, Polarity= 1 RawData= 0 
