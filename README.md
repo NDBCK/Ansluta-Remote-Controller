@@ -124,8 +124,9 @@ The CC2500 is readily available as module on ebay with integrated antenna and ca
 
 To communicate with the wireless module by SPI, I used an arduino nano because I had it laying around.
 For connecting the nano to the CC2500 we have to be carefull with the different voltages. The CC2500 is 3V and the nano is 5V.
-An easy (dirty) way to connect them is using a resistor (about 1K) in series with the data lines comming for the arduino. The data line comming from the CC2500 (MISO) doesnt need the resistor (a high level from CC2500 is 3V and the nano's input detects it as a high level without modifications).
+An easy (dirty) way to connect them is using a resistor (about 1K) in series with the data lines comming for the arduino (MOSI, CLK, CS). The data line comming from the CC2500 (MISO) doesn't need a resistor (a high level from CC2500 is 3V and the nano's input detects it as a high level without modifications).
+The lineair voltage regulator (3.3V) on the nano is used as power source for the wireless module.
 
-![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/SchProto.jpg "Schematic of the prototype")
+![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/ProtoSch.jpg "Schematic of the prototype")
 
 
