@@ -4,7 +4,7 @@ DIY remote controller for the Ikea Ansluta lights (the 2.4Ghz version)
 ##Intro
 
 The Ansluta (OMLOP) line of Ikea lamps only let u use one remote controller for each light. 
-I wanted to use multiple remote's to control one string of lights.
+I wanted to use multiple remotes to control one string of lights.
 
 Another caveat of the original remotes is that it can only cycle through the different brightness levels. It cycles though: 0% - 50% - 100% - 50% - 0% - ....
 I would like to turn it on to 50% brightness and turn it off without cycling to 100%.
@@ -13,7 +13,7 @@ I would like to turn it on to 50% brightness and turn it off without cycling to 
 
 This project is based around an [CC2500 2.4Ghz wireless controller](http://www.ti.com/lit/ds/swrs040c/swrs040c.pdf) and an Atmega328 (ex Arduino Nano).
 
-The choise for the CC2500 was easy because the original Anluta Remote uses this IC, so it's definately possible to use this for controlling my lamp.
+The choice for the CC2500 was easy because the original Anluta Remote uses this IC, so it's definately possible to use this for controlling the lamp.
 
 Some code is loosely based on:
 https://github.com/Zohan/ArduinoCC2500Demo
@@ -141,11 +141,11 @@ The IDLE mode isn't used because after we configure the module we immediately se
 The SPI settings (found by looking at the graph in the datasheet "Configuration Register Write and Read Operations") are:
   * SPI Mode 0
   * MSB First
-  * Max speed: 6Mhz (no need to use extra delays).
+  * Max speed: 6Mhz (no need to use extra delays)
   
  The prototype code simply sends the necessary signals to turn the lights on and off in an endless loop (for testing purposes).
  Now that the prototype works it's time to make a couple of remotes to control the light.
  
-It's needed to remark that the givven code uses the addres that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
+It's needed to remark that the givven code uses the address that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
  
 ##Designing a PCB
