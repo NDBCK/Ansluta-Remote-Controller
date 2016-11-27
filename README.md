@@ -3,8 +3,11 @@ DIY remote controller for the Ikea Ansluta lights (the 2.4Ghz version)
 
 ##Intro
 
-The Ansluta line of Ikea lamps only let u use one remote controller for each light. 
+The Ansluta (OMLOP) line of Ikea lamps only let u use one remote controller for each light. 
 I wanted to use multiple remote's to control one string of lights.
+
+Another caveat of the original remotes is that it can only cycle through the different brightness levels. It cycles though: 0% - 50% - 100% - 50% - 0% - ....
+I would like to turn it on to 50% brightness and turn it off without cycling to 100%.
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/anslutaOr.JPG "Original remote")
 
@@ -15,7 +18,7 @@ The choise for the CC2500 was easy because the original Anluta Remote uses this 
 Some code is loosely based on:
 https://github.com/Zohan/ArduinoCC2500Demo
 
-##Work in progress
+##Reverse Engineering
 
 ###Sniffing SPI
 I had a look inside an orginal Ansluta remote, it uses an texas instrument uC ([MSP430G2221](http://www.ti.com/lit/ds/symlink/msp430g2131.pdf)) and an CC2500.
@@ -139,3 +142,10 @@ The SPI settings (found by looking at the graph in the datasheet "Configuration 
   * SPI Mode 0
   * MSB First
   * Max speed: 6Mhz (no need to use extra delays).
+  
+ The prototype code simply sends the necessary signals to turn the lights on and off in an endless loop (for testing purposes).
+ Now that the prototype works it's time to make a couple of remote's to control the light.
+ 
+ It's needed to remark that the givven code uses the addres that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
+ 
+ ##Designing a PCB
