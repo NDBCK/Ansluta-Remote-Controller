@@ -62,6 +62,9 @@ When the battery's are inserted in the remote some initializing data is sent to 
 Indicating that the module is powered on continuously and a power-down method is used for preserving the battery's.
 
 ```
+SPI Data                                            Register        Value
+
+5B [5C 30 0x30(0F 0x0F)5D ]
 5B [5C 00 0x00(0F 0x0F)5C 29 0x29(0F 0x0F)5D ]	//	IOCFG2           0x29
 5B [5C 02 0x02(0F 0x0F)5C 06 0x06(0F 0x0F)5D ]	//	IOCFG0           0x06
 5B [5C 06 0x06(0F 0x0F)5C FF 0xFF(0F 0x0F)5D ]	//	PKTLEN           0xFF
