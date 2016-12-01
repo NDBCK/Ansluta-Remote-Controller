@@ -149,6 +149,8 @@ FF FF 0F 0F 5D 5D
 The sniffed SPI data shows first a standard button press (because the button is pressed) and afterwards the same sequence with only one byte changed. The byte that dictates the status of the light (Off - 50% - 100%) is replaced by 0xFF.
 Just like a standard button press the sequence is repeated 50 times.
 
+We can also conclude that the remote never receives any data and dependig of the button presses always sends the same data.
+
 ###Prototype Hardware
 
 The CC2500 is readily available as module on ebay with integrated antenna and capacitors so no RF design is needed. Only an SPI connection and power supply is needed. I chose a cheap ebay module with a real CC2500 IC (no glob top).
