@@ -179,7 +179,14 @@ The prototype code simply sends the necessary signals to turn the lights on and 
 Now that the prototype works it's time to make a couple of remotes to control the light.
  
 ##Designing a PCB
+###PCB design goals
+* A seperate button for each light intensity (so no need to cycle through every intensity).
+* No low power modes (if possible) only battery usage when a button is pressed.
+* Small outline < 50mmx50mm
+* Thin PCB design so no high components.
+* (Temporary) Connection for ICSP.
 
+DISCLAIMER: The designed PCB is UNTESTED, I'm waiting for the board house to test the PCB's.
 ...
 Comming soon
 
