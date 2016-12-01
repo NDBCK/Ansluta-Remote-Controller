@@ -186,6 +186,25 @@ Now that the prototype works it's time to make a couple of remotes to control th
 * Thin PCB design so no high components.
 * (Temporary) Connection for ICSP.
 
+###Design choises
+
+I could use 2 buttons, one for 50% On and one for 100% on. Then the first press turns the light on and the second press turn the light off. With this configuration it's necessary to save the state of the light. This could be done in RAM but then continuous power is needed. This could be done in EEPROM but this doesn't have a lot of write cycles.
+
+So I've chosen to use 3 seperate buttons (On 50%, On 100%, OFF).
+
+For the height constraint I didn't want to use elco's so I've used tantalium capacitors for buffering the power rails.
+As battery I've chosen the CR2032 coin battery. To save space I left an opening in the PCB.
+
+When pushing a button power is supplied to the capacitors and the atmega through a diode. At the same time a digital port is pulled high so the atmega knows which button is pushed. 
+I hope the capacitors can store enough energy to send the data to the lights.
+The atmega can be powered on al the time by soldering a jumperpad.
+
+The xtal is 4Mhz so the uC would work with voltages as low as 1.8V
+
+For the ICSP I drew a edge connector with a standard pinout.
+
+The CC2500 antenna sticks out of the PCB because the PCB would shield the signal.
+
 DISCLAIMER: The designed PCB is UNTESTED, I'm waiting for the board house to test the PCB's.
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/images/Sch_V1.png "Schematic")
