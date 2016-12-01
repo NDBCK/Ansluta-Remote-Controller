@@ -18,6 +18,10 @@ The choice for the CC2500 was easy because the original Ansluta Remote uses this
 Some code is loosely based on:
 https://github.com/Zohan/ArduinoCC2500Demo
 
+
+Article Number Remote: 802.883.28
+Article Number Transformer: 803.007.64 / 103.201.81
+
 ##Reverse Engineering
 
 ###Sniffing SPI
