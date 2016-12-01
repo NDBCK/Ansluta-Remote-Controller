@@ -118,7 +118,7 @@ SPI Data                                            Register        Value
 5B [5C 39 0x39(0F 0x0F)5D ]		
 
 ```
-####Paring remote and transformer
+####Pairing remote and transformer
 Comming soon
 
 ###Prototype Hardware
