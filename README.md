@@ -202,6 +202,8 @@ Now that the prototype works it's time to make a couple of remotes to control th
 
 * The CC2500 antenna sticks out of the PCB because the PCB would shield the signal.
 
+###The PCB
+
 DISCLAIMER: The designed PCB is UNTESTED, I'm waiting for the board house to test the PCB's.
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/images/Sch_V1.png "Schematic")
