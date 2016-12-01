@@ -118,6 +118,8 @@ SPI Data                                            Register        Value
 5B [5C 39 0x39(0F 0x0F)5D ]		
 
 ```
+####Paring remote and transformer
+Comming soon
 
 ###Prototype Hardware
 
@@ -146,7 +148,10 @@ The SPI settings (found by looking at the graph in the datasheet "Configuration 
 The prototype code simply sends the necessary signals to turn the lights on and off in an endless loop (for testing purposes).
 Now that the prototype works it's time to make a couple of remotes to control the light.
  
-It's needed to remark that the givven code uses the address that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there will also be a sort of error detection like CRC).
+It's needed to remark that the givven code uses the address that my original Ikea remote has. Somewhere within the 8 bytes that are sent in a burst will be an unique identifier. Without another remote to compare it to I don't know what the identifier is. (Probably there won't be a sort of error detection like CRC because only one byte changes when the button is pressed).
  
 ##Designing a PCB
+Comming soon
+
+##Different addresses
 Comming soon
