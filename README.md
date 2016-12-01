@@ -55,8 +55,8 @@ Together with the datasheet we can decode the data:
 06 06 0F 0F 5C 5C 
 55 55 0F 0F 5C 5C 
 01 01 0F 0F 5C 5C 
-3E 3E 0F 0F 5C 5C
-94 94 0F 0F 5C 5C
+3E 3E 0F 0F 5C 5C               //Address byte 1
+94 94 0F 0F 5C 5C               //Address byte 2
 02 02 0F 0F 5C 5C               //Indicates the light intensity 01=OFF; 02=50%; 03=100%
 AA AA 0F 0F 5C 5C 
 FF FF 0F 0F 5D 5D 
@@ -137,8 +137,8 @@ When the button on the receiver is pressed (transformer) and the button on the t
 06 06 0F 0F 5C 5C 
 55 55 0F 0F 5C 5C 
 01 01 0F 0F 5C 5C 
-3E 3E 0F 0F 5C 5C
-94 94 0F 0F 5C 5C
+3E 3E 0F 0F 5C 5C               //Address byte 1
+94 94 0F 0F 5C 5C               //Address byte 2
 FF FF 0F 0F 5C 5C               //Indicates the pairing sequence
 AA AA 0F 0F 5C 5C 
 FF FF 0F 0F 5D 5D 
