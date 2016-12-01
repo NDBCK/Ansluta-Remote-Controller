@@ -41,7 +41,7 @@ The sniffed data is in the file: ["SPI_DATA.txt"](https://github.com/NDBCK/Anslu
 ####Button press
 Every time the button is pressed a sequence is repeated 50 times: 2 data strobes are sent followed by a burst of data followed by a final strobe.
 
-Together with the datasheet from we can decode the data:
+Together with the datasheet we can decode the data:
 
 ```
 //Strobe 1:
@@ -123,7 +123,31 @@ SPI Data                                            Register        Value
 
 ```
 ####Pairing remote and transformer
-Comming soon
+When the button on the receiver is pressed (transformer) and the button on the transmitter is pushed (and held down) the receiver learns the address of the remote. The sniffed data (complete) 
+
+```
+//Strobe 1:
+5B 5B 5C 5C 36 36 0F 0F 5D 5D 	//0x36 SIDLE Exit RX/TX, turn off frequency synthesizer and exit Wake-On-Radio mode if applicable
+
+//Strobe 2:
+5B 5B 5C 5C 3B 3B 0F 0F 5D 5D 	//0x3B SFTX Flush the TX FIFO buffer. Only issue SFTX in IDLE or TXFIFO_UNDERFLOW states.
+
+//Burst of data:
+5B 5B 5C 5C 7F 7F 0F 0F 5C 5C 	//0x7F Burst access to TX FIFO
+06 06 0F 0F 5C 5C 
+55 55 0F 0F 5C 5C 
+01 01 0F 0F 5C 5C 
+3E 3E 0F 0F 5C 5C
+94 94 0F 0F 5C 5C
+FF FF 0F 0F 5C 5C               //Indicates the pairing sequence
+AA AA 0F 0F 5C 5C 
+FF FF 0F 0F 5D 5D 
+
+//Final strobe:
+5B 5B 5C 5C 35 35 0F 0F 5D 5D 	//0x35 STX In IDLE state: Enable TX. 
+```
+The sniffed SPI data shows first a standard button press (because the button is pressed) and afterwards the same sequence with only one byte changed. The byte that dictates the status of the light (Off - 50% - 100%) is replaced by 0xFF.
+Just like a standard button press the sequence is repeated 50 times.
 
 ###Prototype Hardware
 
