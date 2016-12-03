@@ -166,7 +166,7 @@ The lineair voltage regulator (3.3V) on the nano is used as power source for the
 
 ###Prototype Code
 Now we have the necessary SPI data we and hardware we can write some basic code for the nano.
-The resulting code can be found [HERE](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/AnslutaProto/AnslutaProto.ino).
+The resulting code can be found [HERE](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/AnslutaDemoCode/AnslutaDemoCode.ino).
 The configuration of the module is mostly the same as the original IKEA remote except the output power is changed to the maximal TX power by setting the first byte of the PATABLE with 0xFF.
 The IDLE mode isn't used because after we configure the module we immediately send the data.
 
@@ -175,7 +175,20 @@ The SPI settings (found by looking at the graph in the datasheet "Configuration 
   * MSB First
   * Max speed: 6Mhz (no need to use extra delays)
 
-The prototype code simply sends the necessary signals to turn the lights on and off in an endless loop (for testing purposes).
+The prototype code has been updated (see [changelog.txt](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/AnslutaDemoCode/changelog.txt)).
+
+Demo code flow:
+* First it initializes the CC2500
+* Tries to listen to another (original remote) and extract the address.
+* Sends the command to turn the light on 50%
+* Sends the command to turn the light on 100%
+* Sends the command to turn the light off
+* Sends the command to pair the remote and the receiver
+
+The standard address is 0x01 0x01, this can be changed in the code.
+
+
+
 Now that the prototype works it's time to make a couple of remotes to control the light.
  
 ##Designing a PCB
