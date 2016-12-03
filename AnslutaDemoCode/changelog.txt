@@ -1,0 +1,6 @@
+Update 03/12/16
+
+* Cleaned the code
+* Corrected some errors (char variables were misused)
+* Added al the code snippets togheter and made it more readable
+* Different kind of delays are defined (some are critical for reliability)
