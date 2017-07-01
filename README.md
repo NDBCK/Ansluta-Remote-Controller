@@ -1,7 +1,7 @@
 # Ansluta-Remote-Controller
 IKEA Ansluta 2.4Ghz remote controller
 
-##Intro
+## Intro
 
 The Ansluta (OMLOPP) line of Ikea lamps only let u use one remote controller for each light. 
 I wanted to use multiple remotes to control one string of lights.
@@ -22,9 +22,9 @@ https://github.com/Zohan/ArduinoCC2500Demo
 Article Number Remote: 802.883.28  
 Article Number Transformer: 803.007.64 / 103.201.81
 
-##Reverse Engineering
+## Reverse Engineering
 
-###Sniffing SPI
+### Sniffing SPI
 I had a look inside an orginal Ansluta remote, it uses an texas instrument uC ([MSP430G2221](http://www.ti.com/lit/ds/symlink/msp430g2131.pdf)) and an CC2500.
 The CC2500 communicates over an SPI bus to the uC. So I've connected a ["Bus Pirate"](http://dangerousprototypes.com/docs/Bus_Pirate_v4_design_overview) to the SPI bus of the uC and sniffed the commands and data packets to the wireless chip.
  
@@ -36,9 +36,9 @@ Clock Edge= 0, Polarity= 1 RawData= 0
 
 The sniffed data is in the file: ["SPI_DATA.txt"](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/SPI_DATA.txt)
 
-###Decoding SPI
+### Decoding SPI
 
-####Button press
+#### Button press
 Every time the button is pressed a sequence is repeated 50 times: 2 data strobes are sent followed by a burst of data followed by a final strobe.
 
 Together with the datasheet we can decode the data:
@@ -69,7 +69,7 @@ So the module is awakened from sleep mode, the send buffer is cleared, data is l
 Clearly some data is missing (configuration of the CC2500).
 
 
-####Initializing Data
+#### Initializing Data
 When the battery's are inserted in the remote some initializing data is sent to the CC2500 (without pressing a button).
 Indicating that the module is powered on continuously and a power-down method is used for preserving the battery's.
 
@@ -122,7 +122,7 @@ SPI Data                                            Register        Value
 5B [5C 39 0x39(0F 0x0F)5D ]		
 
 ```
-####Pairing remote and transformer
+#### Pairing remote and transformer
 When the button on the receiver is pressed (transformer) and the button on the transmitter is pushed (and held down) the receiver learns the address of the remote. The sniffed data can be found [HERE](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/SPI_Data/SPI_Pair.txt). 
 
 ```
@@ -151,7 +151,7 @@ Just like a standard button press the sequence is repeated 50 times.
 
 We can also conclude that the remote never receives any data and dependig of the button presses always sends the same data.
 
-###Prototype Hardware
+### Prototype Hardware
 
 The CC2500 is readily available as module on ebay with integrated antenna and capacitors so no RF design is needed. Only an SPI connection and power supply is needed. I chose a cheap ebay module with a real CC2500 IC (no glob top).
 
@@ -164,7 +164,7 @@ The lineair voltage regulator (3.3V) on the nano is used as power source for the
 
 ![alt text](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/ProtoSch.jpg "Schematic of the prototype")
 
-###Prototype Code
+### Prototype Code
 Now we have the necessary SPI data we and hardware we can write some basic code for the nano.
 The resulting code can be found [HERE](https://github.com/NDBCK/Ansluta-Remote-Controller/blob/master/AnslutaDemoCode/AnslutaDemoCode.ino).
 The configuration of the module is mostly the same as the original IKEA remote except the output power is changed to the maximal TX power by setting the first byte of the PATABLE with 0xFF.
@@ -191,15 +191,15 @@ The standard address is 0x01 0x01, this can be changed in the code.
 
 Now that the prototype works it's time to make a couple of remotes to control the light.
  
-##Designing a PCB
-###PCB design goals
+## Designing a PCB
+### PCB design goals
 * A seperate button for each light intensity (so no need to cycle through every intensity).
 * No low power modes (if possible) only battery usage when a button is pressed.
 * Small outline < 50mmx50mm
 * Thin PCB design so no high components.
 * (Temporary) Connection for ICSP.
 
-###Design choises
+### Design choises
 
 * I could use 2 buttons, one for 50% On and one for 100% on. Then the first press turns the light on and the second press turn the light off. With this configuration it's necessary to save the state of the light. This could be done in RAM but then continuous power is needed. This could be done in EEPROM but this doesn't have a lot of write cycles. So I've chosen to use 3 seperate buttons (On 50%, On 100%, OFF).
 
@@ -215,7 +215,7 @@ Now that the prototype works it's time to make a couple of remotes to control th
 
 * The CC2500 antenna sticks out of the PCB because the PCB would shield the signal.
 
-###The PCB
+### The PCB
 
 DISCLAIMER: The designed PCB is UNTESTED, I'm waiting for the board house to test the PCB's.
 
@@ -224,5 +224,5 @@ DISCLAIMER: The designed PCB is UNTESTED, I'm waiting for the board house to tes
 ...
 Comming soon
 
-##Different addresses
+## Different addresses
 Comming soon
